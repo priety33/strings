@@ -1,3 +1,12 @@
+/*
+We can track how many frogs are 'singing' each letter in num:
+
+    1.Increase number of frogs singing this letter, and decrease number singing previous letter.
+    2.When a frog sings 'c', we increase the number of (simultaneous) frogs.
+    3.When a frog sings 'k', we decrease the number of (simultaneous) frogs.
+    4.If some frog is singing a letter, but no frog sang the previous letter, we return -1.
+*/
+
 class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
