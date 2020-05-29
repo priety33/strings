@@ -9,17 +9,19 @@ we can pop the last character to get a smaller result.
 */
 class Solution {
 public:
-       string removeDuplicateLetters(string s) {
-        string res = "";
-        int last[26] = {}, seen[26] = {}, n = s.size();
-        for (int i = 0; i < n; ++i)
-            last[s[i] - 'a'] = i;
-        for (int i = 0; i < n; ++i) {
-            if (seen[s[i] - 'a']++) continue;
-            while (!res.empty() && res.back() > s[i] && i < last[res.back() - 'a'])
-                seen[res.back() - 'a'] = 0, res.pop_back();
-            res.push_back(s[i]);
+    string removeDuplicateLetters(string s) {
+        string ans="";
+        int last[26]={0}, seen[26]={0}, n=s.size();
+        for(int i=0; i<n; i++) last[s[i]-'a']=i;
+        for(int i=0; i<n; i++) {
+            if(seen[s[i]-'a']) continue;
+            while(!ans.empty() && i<last[ans.back()-'a'] && ans.back()>s[i]) {
+                seen[ans.back()-'a']=0;
+                ans.pop_back();
+            }
+            seen[s[i]-'a']=1;
+            ans.push_back(s[i]);
         }
-        return res;
+        return ans;
     }
 };
