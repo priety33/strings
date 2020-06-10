@@ -24,7 +24,7 @@ int compareVersion(string version1, string version2) {
             s2 += version2[j];
             j++;
         }
-        
+        //M and N are number between '.'
         if(s1.length() > 0)
             M = stoi(s1);
         
@@ -33,7 +33,7 @@ int compareVersion(string version1, string version2) {
         
         if(M > N) return 1;
         else if(M < N) return -1;
-        
+        //skipping '.'
         i++; j++;
     }
     
